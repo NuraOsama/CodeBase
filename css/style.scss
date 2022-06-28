@@ -1,0 +1,150 @@
+
+/* abstracts */
+
+@use 'sass/abstracts/variables' as var;
+
+@use 'sass/abstracts/mixins';
+
+@use 'sass/abstracts/placeholders';
+
+/* //abstracts */
+
+/* components & layouts & pages */
+
+@use 'sass/components/preloader'; 
+
+@use 'sass/layouts/header';
+
+@use 'sass/layouts/heading';
+
+@use 'sass/layouts/global';
+
+@use 'sass/components/buttons';
+ 
+@use 'sass/components/form';
+
+@use 'sass/pages/indexpage';
+
+@use 'sass/pages/workpage';
+
+@use 'sass/pages/articlespage';
+
+@use 'sass/pages/careerspage';
+
+@use 'sass/layouts/letstalk';
+
+@use 'sass/layouts/footer';
+
+@use 'sass/components/scroll';
+
+@use 'sass/layouts/responsive';
+
+/* //components & layouts & pages */
+
+/* import fonts */
+
+/* en fonts */
+@font-face{
+
+    font-family:Helvetica;
+    src:url(../fonts/HelveticaLT55Roman.ttf);
+    font-display: swap;
+
+}
+@font-face{
+
+    font-family:TTInterfacesMedium;
+    src:url(../fonts/TTInterfaces-Medium.ttf);
+    font-display: swap;
+    
+}
+@font-face{
+
+    font-family:TTInterfacesLight;
+    src:url(../fonts/TTInterfaces-Light.ttf);
+    font-display: swap;
+
+
+}
+@font-face{
+
+    font-family:Monument Extended;
+    src:url(../fonts/MonumentExtended-Regular.otf);
+    font-display: swap;
+
+}
+@font-face{
+
+    font-family:PPMonumentExtended-Regular;
+    src:url(../fonts/PPMonumentExtended-Regular.otf);
+    font-display: swap;
+}
+@font-face{
+
+    font-family:GilroyExtraBold;
+    src:url(../fonts/Gilroy-ExtraBold.otf);
+    font-display: swap;
+
+}
+@font-face{
+
+    font-family:TradeGothicBold;
+    src:url(../fonts/TradeGothicLTBoldNo.2.ttf);
+    font-display: swap;
+
+}
+/* //en fonts */
+
+/* ar fonts */
+@font-face{
+
+    font-family:HelveticaNeueLTArabicRoman;
+    src:url(../fonts/HelveticaNeueLTArabic-Roman.ttf);
+    font-display: swap;
+    
+}
+@font-face{
+
+    font-family:HelveticaNeueLTArabicBold;
+    src:url(../fonts/HelveticaNeueLTArabic75-Bold.ttf);
+    
+    font-display: swap;
+
+}
+@font-face{
+
+    font-family:DimaKereshmeh;
+    src:url(../fonts/ArbFONTS-DimaKereshmeh.ttf);
+
+    font-display: swap;
+}
+/* //ar fonts */
+
+
+body {
+
+    direction:var.$ltrdir;
+    text-align:var.$left;
+    font-family: 'Helvetica',sans-serif;
+    @extend %body;
+
+}
+
+/* lang */
+.lang-ar{
+
+    font-size: 1.1rem !important;
+    align-items: unset;
+    font-family: "HelveticaNeueLTArabicRoman",sans-serif !important;
+
+  }
+
+  .lang-en{
+
+    @extend %d-none;
+
+  }
+
+  /* //lang */
+
+

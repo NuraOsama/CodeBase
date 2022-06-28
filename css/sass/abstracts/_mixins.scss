@@ -1,0 +1,72 @@
+
+ /* Overaly Mixin */
+ 
+ @mixin positionmixin {
+
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    width:100%;
+    height:100%;
+  
+ }
+
+ /* //Overaly Mixin */
+
+ /* Background Mixin */
+ 
+ @mixin backgroundmixin($size:unset,$position:0 0,$repeat:no-repeat){
+    background: {
+     
+        size: $size;
+        position: $position;
+        repeat:$repeat;
+
+   }
+
+ }
+
+ /* //Background Mixin */
+
+ /* Prefixer Mixin */
+
+@mixin prefixermixin($property,$value,$prefix:()){
+
+    @each $prefixs in $prefix{
+
+        #{'-'+ $prefixs +'-' + $property}:$value;
+    }
+    #{$property}:#{$value};
+
+}
+
+/* //Prefixer Mixin */
+
+/* Keyframes Animation Mixin */
+
+ @mixin keyframemixin($animatename){
+
+    @-webkit-keyframes #{$animatename}{
+
+        @content;
+
+
+    }
+    @-moz-keyframes #{$animatename}{
+
+        @content;
+
+
+    }
+    @keyframes #{$animatename}{
+
+        @content;
+
+
+    }
+
+ }
+ 
+ /* //Keyframes Animation Mixin */ 

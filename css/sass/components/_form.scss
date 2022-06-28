@@ -1,0 +1,205 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+
+/* form */
+::-webkit-file-upload-button,
+::-webkit-file-upload-button {
+
+    @extend %d-none;
+}
+form{
+    .col-lg-6:first-child{
+
+        padding-inline-end: 2rem;
+    }
+    .col-lg-6:last-child{
+
+        padding-inline-start: 2rem;
+    }
+}
+.input-effect{
+
+    position: relative;
+
+}
+.form-control{
+
+    position: relative;
+    overflow: hidden;
+    width:100% !important;
+    height: calc(2.2rem + 2.5px) !important;
+    padding: 0.375rem 1rem !important;
+    font-size:1.1rem !important;
+    background-color:transparent !important;
+    border-radius:unset !important;
+    border-top: unset;
+    border-#{var.$right}: unset;
+    border-#{var.$left}: unset;
+    border-color:var.$whitecolor !important;
+    color: var.$blackcolor;
+    box-shadow: none !important;
+    outline:none !important;
+    @extend %transition;
+
+    &::placeholder{
+
+        opacity: 0;
+    }
+    &:hover{
+
+        color: var.$blackcolor;
+    }
+    &:active,
+    &:focus,
+    &.has-content{
+
+     color: var.$whitecolor;
+
+    }
+    & ~ label {
+
+        position: absolute;
+        top: -10px;
+        #{var.$left}: 0;
+        #{var.$right}: 0;
+        width: 100%;
+        font-size:1.2rem;
+        letter-spacing: 0.5px;
+        @extend %transition;
+    
+      }
+
+      &:hover ~ label,
+      &:active ~ label,
+      &:focus ~ label,
+      &.has-content ~ label {
+
+        top: -30px;
+        #{var.$left}: 0;
+        color: var.$mainredcolor;
+
+    }
+
+    & ~ .focus-border{
+
+        display: block;
+        position: relative;
+        top: -1px;
+        width: 100%;
+        height: 2px;
+        z-index: 1;
+       
+    }
+  
+    & ~ .focus-border::before,
+    & ~ .focus-border::after{
+
+        content:" ";
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 100%;
+        background-color:var.$mainredcolor;
+        @extend %transition;
+
+    }
+    & ~ .focus-border {
+
+        width: 100%;
+        height: 2px;
+
+    }
+    & ~ .focus-border::before{
+
+        #{var.$left}: 0;
+    }
+    & ~ .focus-border::after{
+
+        #{var.$left}: auto;
+        #{var.$right}: 0;
+    }
+
+    &:hover ~ .focus-border::before, 
+    &:hover ~ .focus-border::after,
+    &:active ~ .focus-border::before, 
+    &:active ~ .focus-border::after,
+    &:focus ~ .focus-border::before, 
+    &:focus ~ .focus-border::after,
+    &.has-content ~ .focus-border:before,
+    &.has-content ~ .focus-border::after {
+
+        width: 50%;
+    }
+        
+}
+
+/*  validate form */
+.invalid-feedback{
+
+    position: relative;
+    width: 100%;
+    margin: 1rem 0 0;
+    font-size: 1rem;
+    background-color: var.$mainredcolor;
+    color: var.$whitecolor !important;
+    @extend %TTInterfacesLight;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    opacity: 0;
+    animation: invalid-animate 0.8s linear forwards;
+
+}
+.invalid-feedback::before,
+form .text-danger::before {
+
+    content: "\f0d8";
+    position: absolute;
+    top: -18px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: var.$mainredcolor;
+
+}
+.form-control.is-valid,
+.was-validated .form-control:valid {
+
+    background-image: url("data:image/png;base64,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");
+
+}
+.form-control.is-invalid,
+.was-validated .form-control:invalid {
+
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAAoklEQVRoge3asQ3CMABE0TNiAe8TCnrIsJbrNMk+GSEU6QAhFOmiK/4rXeT0lcKNi0zW8TlJ2/3teKmt3xx7F8dHdx8RkjS41owhu9p6qa0X94495CyEpCEkDSFpCElDSBpC0hCShpA0hKQhJA0haQhJQ0gaQtIQkoaQNISkuboH1vGxuTck7x9ZvpzNxj0AP9heJPAW5SDeoqThZv/DqTf7C2IzHVVSG7G3AAAAAElFTkSuQmCC") !important;
+
+}
+.form-control.is-invalid,
+.was-validated .form-control:invalid,
+.form-control.is-valid,
+.was-validated .form-control:valid {
+
+
+    background-repeat: no-repeat;
+    background-size: calc(1.1em + 0.375rem) calc(1.1em + 0.375rem);
+    background-position: var.$right calc(0.375rem + 0.1875rem) top;
+    border-color:var.$whitecolor !important;
+    box-shadow: unset !important;
+    transition:unset !important;
+    
+}
+.was-validated textarea.form-control:invalid,
+textarea.form-control.is-invalid,
+.was-validated textarea.form-control:valid,
+textarea.form-control.is-valid {
+
+    background-position: top calc(-0.1em + 0.1875rem) var.$right calc(0.375rem + 0.1875rem);
+}
+
+/* // validate form */
+/* //form */
+
+
+
+

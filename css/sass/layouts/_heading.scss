@@ -1,0 +1,72 @@
+
+@use '../abstracts/variables' as var;
+@use '../abstracts/placeholders';
+
+
+/* heading */
+.head{
+
+    h2,h3,h4,h5{
+
+        @extend %fontfamilyMonument;
+        line-height: 1.4;
+    
+    }
+ 
+    .effect-text{
+
+        @extend %prelative;
+        width: fit-content;
+        @extend %transition;
+
+        &::before{
+            
+            @extend %scrolleffect;
+            @extend %generalscrolleffect;
+            
+       }
+
+     
+       &.active{
+
+        @extend %generalclipanimation;
+       }
+
+       &.active::before{
+
+         @extend %generalrevealeranimation;
+
+       }
+       
+     }
+     h3{
+
+      &.effect-text.text-white::before{
+
+        background-color: var.$whitecolor;
+
+       }
+       &.effect-text::before{
+
+        background-color: var.$mainredcolor;
+
+       }
+     
+    }
+    h4{
+
+      &.effect-text::before{
+
+        background-color: var.$whitecolor;
+
+       }
+       &.effect-text.ddblackcolor::before{
+
+        background-color: var.$ddblackcolor;
+
+      }
+    }
+
+}
+/* //heading */
+ 

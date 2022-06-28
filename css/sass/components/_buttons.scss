@@ -1,0 +1,136 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+
+/* buttons */
+.btn{
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0 !important;
+    border: 1px solid var.$whitecolor;
+    color: var.$whitecolor !important;
+    @extend %fontfamilyMonument;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-radius: unset;
+    text-align: center;
+    cursor: pointer !important;
+    background: transparent;
+    @extend %prelative;
+    width: 100%;
+    max-width: max-content;
+    min-width: min-content;
+    white-space: unset;
+    box-shadow: none;
+    outline: none !important;
+    overflow: hidden;
+    @extend %transition;
+
+     &::before,
+     &::after{
+       
+         @extend  %btneffect;
+         #{var.$left}:-1.8rem;
+
+     }
+
+     &::before{
+
+        top:-2rem;
+     }
+
+     
+     &::after{
+
+        bottom:-2rem;
+     }
+
+         span{
+
+           padding: 1.1rem 2.3rem;
+           @extend %prelative;
+
+           &::before,
+           &::after{
+      
+            @extend  %btneffect;
+            #{var.$right}:-1.8rem;
+
+            
+           }
+             &::before{
+
+                top:-2rem;
+            }
+            &::after{
+
+                bottom:-2rem;
+             }
+         }
+        
+   &:hover::before,
+   &:hover::after{
+
+    transform:scale(15.7) rotate(45deg);
+   } 
+   &:hover{
+
+    span::before,
+    span::after{
+
+        transform:scale(15.7) rotate(45deg);
+    }
+   }    
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:active:focus{
+    
+        -webkit-animation: pulse 1s infinite;
+        animation: pulse 1s infinite;
+        border-color: var.$mainredcolor;
+        box-shadow: 0 0 0 1.5em rgba(255, 255, 255 , 0); 
+    }
+
+    &.btn-dark{
+
+        background-color: var.$blackcolor;
+        border:none !important;
+        font-family: "Helvetica", sans-serif;
+
+        &::before,
+        &::after{
+          
+            background-color: var.$whitecolor;
+        }
+        span{
+
+            &::before,
+            &::after{
+       
+                background-color: var.$whitecolor;
+             
+            }
+        }
+
+        &:hover,
+        &:active,
+        &:focus,
+        &:active:focus{
+    
+        -webkit-animation: pulse-whilte 1s infinite;
+        animation: pulse-whilte 1s infinite;
+        color: var.$mainredcolor !important;
+
+      }
+    }
+}
+
+/* //buttons */
+
