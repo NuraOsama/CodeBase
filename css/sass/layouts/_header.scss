@@ -1,0 +1,207 @@
+
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+  /* header */
+  
+  header{
+    
+    width: 100%;
+    top: 0;
+    #{var.$left}: 0;
+    #{var.$right}: 0;
+    z-index: 2;
+    
+
+    &::before{
+ 
+      content: " ";
+      @extend %pabsolute;
+      transform: translateY(-100%);
+      visibility: collapse;
+      box-shadow: 0;
+      background-color: var.$lblackcolor;
+      @extend  %transition-less;
+
+    }
+    &.sticky-navbar{
+
+      position: fixed !important;
+      background-color: var.$lblackcolor;
+      box-shadow: 0 0.1rem 0.7rem  rgba($color: var.$darkcolor, $alpha: 0.722);
+      z-index: 10000;
+  
+      &::before{
+
+        transform: translateY(0);
+        visibility: visible;
+
+      }
+      .navbar-light{
+
+        padding-top:1rem;
+
+      }
+
+    }
+    &.position-absolute{
+
+      .navbar-brand{
+            margin-inline-start: -0.5rem
+
+      }
+
+    }
+    
+
+  }   
+  .navbar-light {
+
+    padding-top: 3rem;
+    @extend  %transition-less;
+
+    .navbar-brand{
+
+      width: 270px;      
+    }
+     .navbar-toggler {
+
+       color:transparent;
+       border:unset; 
+       padding: 0;
+
+       .navbar-toggler-icon{
+
+        position: relative;
+        width: 2.5rem;
+        height: 2px;
+        background-color:var.$mainredcolor;
+        background-image: unset;
+        border-radius: 2rem;
+
+           &::before,
+           &::after{
+          
+              content: '';
+              position: absolute;
+              #{var.$left}:0;
+              #{var.$right}:0;
+              display: block;
+              width:100%;
+              height: 100%;
+              margin: 0 auto;
+              border-radius: inherit;
+              background: inherit;   
+              @extend %transition; 
+          
+            }
+           &::before {
+
+              top: -8px;
+          
+          }
+          &::after {
+          
+              bottom: -8px;
+              opacity: 1;
+          
+          }
+
+       }
+
+       &.active{
+
+        .navbar-toggler-icon{
+
+          &::before,
+          &::after{
+
+            width:70%;
+
+          }
+        }
+
+       }
+     }
+
+
+    .navbar-nav{
+      
+      .nav-link{
+
+        @extend %prelative;
+        display: inline-flex;
+        align-items: center;
+        font-family: "PPMonumentExtended-Regular",sans-serif;
+        color:var.$whitecolor;
+        font-size: 0.87rem;
+        @extend %transition;
+        overflow: hidden;
+      
+        &:not(.lang){
+
+          padding: 0.5rem 1.3rem 0.2rem;
+
+        }
+       
+        &.active{
+
+          color:var.$mainredcolor
+        }
+  
+       
+        &:hover,
+        &:active,
+        &:focus{
+
+          color:var.$whitecolor;
+          padding-inline-end: 0.5rem !important;
+          padding-inline-start: 0.5rem !important;
+
+          .effect{
+
+             @extend %effecthovered;
+             
+          }
+        }
+
+     }
+
+     &.navbar-side{
+        
+      .nav-link{
+
+        width: max-content;
+        font-size: 0.8rem;
+        
+        img{
+
+          width:1.7rem;
+          margin-inline-end:1rem;
+          vertical-align: baseline;
+          @extend %transition;
+
+        }
+
+        &:hover,
+        &:active,
+        &:focus{
+
+          img{
+
+            @extend %filterbrightness;
+
+          }
+        }
+      }
+
+     }
+
+
+   }
+
+  }
+ 
+  /* //header */
+  

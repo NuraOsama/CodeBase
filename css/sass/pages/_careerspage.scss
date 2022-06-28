@@ -1,0 +1,211 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+/* careers pg */
+.careers-pg-sec {
+
+    p{
+        line-height: 1.15;
+    }
+
+    ul {
+
+        list-style: disc;
+        padding-inline-start: 2rem;
+        li{
+
+            span{
+
+                font-size: 1.25rem;
+                @extend %transition;
+                margin-inline-start:0;
+ 
+            }
+            &:hover{
+
+                span{
+                    color:var.$mainredcolor;
+                    margin-inline-start:0.7rem;
+                }
+            }
+        }
+    }
+}
+/* //careers pg */
+
+/* careers pg jobs */
+.careers-jobs-pg-sec{
+
+    .col-lg-6:nth-child(odd),
+    .col-lg-3{
+
+        .sub-content{
+           padding-inline-end:1.5rem;
+        }
+    }
+    .col-lg-6:nth-child(even){
+
+        .sub-content{
+           padding-inline-start: 1.5rem;
+        }
+    }  
+    .col-lg-6:nth-child(odd):not(:last-of-type){
+
+        
+        .effect-image{
+
+             @extend %prelative;
+             
+             &::before{
+                
+                @extend %scrolleffect;
+                @extend  %imagescrolleffect;
+                background-color: var.$mainredcolor;
+                z-index: 2;
+
+             }
+            
+             &.active::before{
+           
+                @extend %imagerevealeranimation;
+        
+             }
+        
+            // &.active{
+
+            //     @extend %imageclipanimation;
+              
+            //   }
+            
+        }
+    }
+    .col-lg-6:nth-child(even):not(:first-of-type){
+
+        .effect-image{
+ 
+             &.active{
+ 
+                 @extend %generalclipanimation;
+               
+             }       
+         }
+    }
+    .head{
+         h4{
+
+          @extend %fontfamilyHelvetica;
+          @extend %transition;
+        }
+    }
+    .image{
+
+        overflow: hidden;
+        img{
+
+            @extend %h-400;
+            @extend %object;
+            @extend  %scale;
+            @extend %transition-large;
+
+
+        }
+    }
+
+    .sub-content:hover{
+
+        .head{
+           h4:not(.f-26){
+
+            color: var.$mainredcolor;
+          }
+        }
+        .image{
+
+            img{
+
+                @extend %scale-md;
+            }
+        }
+    }
+
+    .nav-pills {
+
+        .nav-link{
+
+            @extend %prelative;
+            width: fit-content;
+            font-size: 1.25rem;
+            color: var.$graycolor;
+            padding: 0.7rem 0;
+            text-transform: capitalize;
+            border-radius:unset;
+            overflow: hidden;
+            @extend %transition-cubic-less;
+
+            &::before{
+
+                content: " ";
+                @extend %pabsolute;
+                background-color: var.$mainredcolor;
+                transform: translateX(-100%);
+                visibility:collapse;
+                @extend %transition-cubic-less;
+                z-index: -1;
+
+            }
+            &:hover{
+
+                padding-inline-start: 0.5rem;
+                padding-inline-end: 0.5rem;
+                color:var.$whitecolor;
+
+            }
+            &:hover::before{
+
+                transform: translateX(0) !important;
+                visibility:visible;
+            }
+           
+        }
+        .nav-link.active,
+        .show>.nav-link {
+           
+            color: var.$whitecolor;
+            background-color: transparent;
+        }
+
+    }
+
+}
+/* //careers pg jobs */
+
+/* careers details pg */
+.career-details-pg-sec{
+
+    .image{
+
+        img{
+           
+            @extend %h-300;
+
+        }
+    }
+    .text{
+
+        margin-bottom:3.5rem;
+
+    }
+    .info.d-flex{
+
+        .text:first-of-type{
+
+            padding-inline-end: 3rem;
+        }
+    }
+    form{
+
+        width: 70%;
+    }
+}
+/* //careers details pg */

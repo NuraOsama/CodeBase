@@ -1,0 +1,157 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+/* articles pg */
+.articles-pg-sec{
+
+    .sub-content{
+
+        margin-bottom:7rem;
+        
+        &:hover{
+
+            .image::before,
+            .image::after{
+    
+                background-color: rgba($color: var.$whitecolor, $alpha: 0.4) ;
+    
+            }
+            .image::before {
+           
+                @extend %articleffecthoveredbefore;
+                @extend %articleffecthoveredbeforestart;
+
+           }
+           .image::after {
+   
+               @extend %articleffecthoveredafter;
+               @extend %articleffecthoveredbeforeend;
+
+           }
+            h4{
+
+            color:var.$mainredcolor;
+            }
+
+            img{
+    
+               @extend %scale-md;
+
+            }
+        }
+       
+    }
+    .image{
+
+        @extend %prelative;
+        overflow: hidden;
+        &::before,
+         &::after {
+
+           @extend %articleffect;
+           z-index: 2;
+        
+        }
+    
+        .effect-image{
+    
+            @extend %prelative;
+        }
+
+        img{
+         
+            @extend %h-350;
+            @extend  %object;
+            @extend  %scale;
+            @extend %transition-large;
+
+        }
+
+    }
+    h4{
+        @extend %transition;
+
+    }
+
+    .col-lg-6:nth-child(odd),
+    .swiper-slide:nth-child(odd){
+        .image{
+
+                .effect-image{
+    
+                &::before{
+                
+                    @extend %scrolleffect;
+                    @extend  %imagescrolleffect;
+                    background-color: var.$mainredcolor;
+                    z-index: 2;
+
+                }
+            
+                  &.active::before{
+           
+                   @extend %imagerevealeranimation;
+           
+                  }
+    
+                    
+                }
+          
+                
+            }   
+    }
+    .col-lg-6:nth-child(even),
+    .swiper-slide:nth-child(even){
+        .image{
+
+
+                .effect-image{
+
+                &.active{
+
+                    @extend %generalclipanimation;
+                  
+                  }
+                
+                }
+          
+            
+        }
+    }
+  
+}
+/* //articles pg */
+
+/* articles details pg */
+.articles-details-pg-sec{
+
+    .image{
+
+      img{
+
+        height: 450px;
+      }
+    }  
+}
+/* //articles details */
+
+/* recent articles  */
+.recent-articles-sec {
+    .image {
+        img {
+        
+         height: 270px;
+
+        }
+    }
+}
+
+.swiper-recentarticles{
+    .swiper-wrapper{
+
+        @extend %timingfunction;
+
+    }
+}
+/* //recent articles  */

@@ -1,0 +1,39 @@
+
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use '../abstracts/placeholders';
+
+/* footer */
+footer{
+
+    padding:5rem 0 1rem;
+
+    h4{
+
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+    span{
+
+        font-size: 0.9rem;
+        color: var.$llgraycolor;
+        @extend %transition;
+
+        &:hover{
+
+          color: var.$mainredcolor;
+
+       }
+    }
+
+    p{
+        color:var.$llgraycolor;
+        a:hover{
+
+            color:var.$mainredcolor;
+
+        }
+    }
+}
+
+/* //footer */
